@@ -53,7 +53,7 @@ if __name__ == "__main__":
     print("After chaining:", p.getVisibleItems())
 
 
-    p.goToPage(5) 
+    p.goToPage(10) 
     print("After goToPage(10):", p.getVisibleItems())
 
 
