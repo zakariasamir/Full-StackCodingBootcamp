@@ -51,7 +51,7 @@ join payment p on r.rental_id = p.rental_id
 join inventory i on r.inventory_id = i.inventory_id
 join film f on i.film_id = f.film_id
 join customer c on r.customer_id = c.customer_id
-where c.first_name = 'Matthew' 
+where c.first_name = 'Matthew'
 and c.last_name = 'Mahan'
 and p.amount > 4.00
 and r.return_date between '2005-07-28' and '2005-08-01';
