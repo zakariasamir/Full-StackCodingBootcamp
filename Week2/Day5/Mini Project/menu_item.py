@@ -8,7 +8,6 @@ class MenuItem:
 
     @classmethod
     def connect(cls):
-        """Establish database connection"""
         try:
             if not cls._connection:
                 cls._connection = psycopg2.connect(
@@ -23,7 +22,6 @@ class MenuItem:
 
     @classmethod
     def close_connection(cls):
-        """Close database connection"""
         try:
             if cls._cursor:
                 cls._cursor.close()
@@ -48,7 +46,6 @@ class MenuItem:
         self.connect()
 
     def save(self):
-        """Save a new menu item"""
         try:
             self._cursor.execute(
                 "INSERT INTO menu_items(item_name, item_price) VALUES(%s, %s)",
@@ -62,7 +59,6 @@ class MenuItem:
             raise
 
     def delete(self):
-        """Delete a menu item"""
         if not hasattr(self, 'item_id'):
             raise ValueError("Item ID is required for deletion")
             
@@ -80,7 +76,6 @@ class MenuItem:
             raise HTTPException(status_code=500, detail=str(e))
 
     def update(self, new_name, new_price):
-        """Update a menu item"""
         if not hasattr(self, 'item_id'):
             raise ValueError("Item ID is required for update")
             
@@ -111,5 +106,4 @@ class MenuItem:
             raise HTTPException(status_code=500, detail=str(e))
 
     def __del__(self):
-        """Destructor to ensure connection is closed"""
         self.close_connection()
