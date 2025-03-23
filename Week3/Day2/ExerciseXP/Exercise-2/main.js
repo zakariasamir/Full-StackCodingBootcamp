@@ -1,29 +1,11 @@
-const stock = {
-  banana: 6,
-  apple: 0,
-  pear: 12,
-  orange: 32,
-  blueberry: 1,
-};
+const colors = ["blue", "red", "green", "purple", "black"];
+const suffixes = ["st", "nd", "rd", "th", "th"];
 
-const prices = {
-  banana: 4,
-  apple: 2,
-  pear: 1,
-  orange: 1.5,
-  blueberry: 10,
-};
+colors.forEach((color, index) => {
+  console.log(`My # ${index + 1} choice is ${color}`);
+});
 
-const shoppingList = ["banana", "orange", "apple"];
-
-function myBill() {
-  let total = 0;
-  shoppingList.forEach((item) => {
-    if (item in stock && stock[item] > 0) {
-      total += prices[item];
-      stock[item]--;
-    }
-  });
-  console.log(total);
-}
-myBill();
+colors.forEach((color, index) => {
+  const suffix = suffixes[index] || "th"; // Default to "th" for numbers beyond 3
+  console.log(`My ${index + 1}${suffix} choice is ${color}`);
+});
