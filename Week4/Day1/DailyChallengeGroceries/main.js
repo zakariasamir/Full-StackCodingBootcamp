@@ -18,7 +18,7 @@ displayGroceries();
 
 const cloneGroceries = () => {
   let user = client;
-  
+
   client = "Betty";
 
   console.log("Client:", client);
