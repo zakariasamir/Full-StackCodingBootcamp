@@ -1,0 +1,60 @@
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  background-color: #6ecf68;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+.logo {
+  font-family: "SEGA LOGO FONT", sans-serif;
+  font-weight: 100;
+}
+.header {
+  background: #3aa0b5;
+  padding: 20px;
+}
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #fff;
+}
+input {
+  padding: 12px;
+  width: 60%;
+  margin: 20px 0;
+  border-radius: 25px;
+  border: 2px solid #3aa0b5;
+  font-size: 16px;
+  outline: none;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background: url("circuit-pattern.png");
+}
+.card {
+  background: #43a1c9;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: url("card-pattern.png"), #43a1c9;
+}
+.card img {
+  border-radius: 50%;
+  background: #fff;
+}
+.card h3 {
+  color: #000;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.card p {
+  font-size: 14px;
+  color: #222;
+}
