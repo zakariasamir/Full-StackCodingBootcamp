@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .gif-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .gif-item {
+        position: relative;
+      }
+      .gif-item button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgb(255, 149, 0);
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+      #deleteAll {
+        margin-top: 20px;
+        padding: 10px;
+        background: rgb(255, 149, 0);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Search Random GIFs</h1>
+    <form id="gifForm">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Enter category..."
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gif-container" id="gifContainer"></div>
+    <button id="deleteAll">Delete All</button>
+    <script src="main.js"></script>
+  </body>
+</html>
