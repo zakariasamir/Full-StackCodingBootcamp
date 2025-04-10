@@ -11,8 +11,17 @@ class MenuItemCreate(BaseModel):
     price: int
 
 class MenuItemUpdate(BaseModel):
-    new_name: str
-    new_price: float
+    name: str
+    price: int
+
+@app.post("/menu/add")
+def add_item(item: MenuItemCreate):
+    try:
+        menu_item = MenuItem(name=item.name, price=item.price)
+        menu_item.save()
+        return {"message": "Item added successfully"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 @app.get("/menu/{item_id}")
 def get_item(item_id: int):
@@ -21,11 +30,6 @@ def get_item(item_id: int):
 @app.get("/menu")
 def get_all_items():
     return MenuManager.all_items()
-
-@app.post("/menu/add")
-def add_item(item: MenuItemCreate):
-    menu_Item = MenuItem(item.name, item.price)
-    return menu_Item.save()
 
 @app.delete("/menu/delete/{item_id}")
 def delete_item(item_id: int):
@@ -39,7 +43,7 @@ def delete_item(item_id: int):
 def update_item(item_id: int, item: MenuItemUpdate):
     try:
         menu_item = MenuItem(name=None, price=None, item_id=item_id)
-        return menu_item.update(item.new_name, item.new_price)
+        return menu_item.update(item.name, item.price)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
