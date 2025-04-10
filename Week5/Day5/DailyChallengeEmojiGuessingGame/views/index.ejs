@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji Game</title>
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <h1>Welcome, <%= username %>!</h1>
+  <h2>Your Score: <%= score %></h2>
+
+  <% if (feedback) { %>
+    <p><strong><%= feedback %></strong></p>
+  <% } %>
+
+  <form id="guessForm" action="/guess" method="POST">
+    <div style="font-size: 3rem;"><%= question.emoji %></div>
+
+    <% question.options.forEach(opt => { %>
+      <div>
+        <input type="radio" name="guess" value="<%= opt %>" required> <%= opt %>
+      </div>
+    <% }) %>
+
+    <button type="submit">Submit Guess</button>
+  </form>
+
+  <p>⏱ Time left: <span id="timer">10</span> seconds</p>
+
+  <h3>Leaderboard</h3>
+  <ol>
+    <% leaderboard.forEach(player => { %>
+      <li><%= player.name %>: <%= player.score %></li>
+    <% }) %>
+  </ol>
+</body>
+</html>
